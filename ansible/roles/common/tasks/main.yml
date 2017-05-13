@@ -8,10 +8,10 @@
     - "{{ project_path }}"
     - "{{ application_path }}"
 
-- name: Copy requirements to application_folder
+- name: Copy requirements to project folder
   copy: src=../app/requirements.txt dest={{ project_path }}/requirements.txt mode=0644
 
-- name: Copy source code
+- name: Copy source code to application folder
   copy: src=../app/{{ item }} dest={{ application_path }}/{{ item }} mode=0644
   with_items:
     - app.py

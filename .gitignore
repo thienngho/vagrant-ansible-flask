@@ -2,3 +2,5 @@
 .vagrant
 *.log
 *.retry
+ansible/dev.retry
+.DS_Store

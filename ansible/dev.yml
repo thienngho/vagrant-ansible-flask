@@ -7,7 +7,7 @@
   vars:
     user_name: "ubuntu"
 
-  pre_tasks:
+  pre_tasks: #Ubuntu 16.04 default is shipped with Python3 but Ansible doesn't support well
   - raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
   - setup: # aka gather_facts
 
