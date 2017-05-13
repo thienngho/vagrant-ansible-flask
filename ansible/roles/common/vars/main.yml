@@ -1,0 +1,13 @@
+---
+
+# project name
+project_name: dev
+
+# home path for project and virtualenv, e.g. /home/vagrant
+home_path: /home/{{ user_name }}
+
+# project path, e.g. /opt/absolute
+project_path: "/opt/absolute"
+
+# flask app path, e.g. /opt/absolute/app
+application_path: "{{ project_path }}/app"

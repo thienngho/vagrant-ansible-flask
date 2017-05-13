@@ -1,0 +1,23 @@
+---
+
+- name: Configuration for local development on Vagrant VM
+  hosts: all
+  gather_facts: False
+  become: yes
+  vars:
+    user_name: "ubuntu"
+
+  pre_tasks:
+  - raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+  - setup: # aka gather_facts
+
+  roles:
+    - common
+    - python
+    - gunicorn
+    - nginx
+
+  tasks:
+    - name: Allow virtualenv python to bind port 80
+      command: setcap cap_net_bind_service=ep {{ virtualenv_path }}/bin/python
+      changed_when: false
